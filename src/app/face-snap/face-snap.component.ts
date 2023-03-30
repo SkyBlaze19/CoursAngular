@@ -8,7 +8,9 @@ import { FaceSnap } from '../models/face-snap.models';
 })
 export class FaceSnapComponent implements OnInit{
   @Input() faceSnap!: FaceSnap;
-  /* Idem que le commentaire à l'intérieur de ngOnInit
+  /* Idem que le commentaire à l'intérieur de ngOnInit.
+  // On laisse buttonText car il est statique, il ne changera pas 
+  // entre tous les snaps existants.
   title!: string;
   description!: string;
   createdDate!: Date;
