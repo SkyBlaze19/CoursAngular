@@ -8,13 +8,14 @@ import { FaceSnap } from '../models/face-snap.models';
 })
 export class FaceSnapComponent implements OnInit{
   @Input() faceSnap!: FaceSnap;
-
+  /* Idem que le commentaire à l'intérieur de ngOnInit
   title!: string;
   description!: string;
   createdDate!: Date;
   snaps!: number;
   imgUrl!: string;
   altImg!: string;
+  */
   buttonText!: string;
 
   ngOnInit() {
