@@ -12,6 +12,7 @@ export class FaceSnapComponent implements OnInit{
   snaps!: number;
   imgUrl!: string;
   altImg!: string;
+  buttonText!: string;
 
   ngOnInit() {
     this.title = 'Un test';
@@ -20,5 +21,17 @@ export class FaceSnapComponent implements OnInit{
     this.snaps = 13;
     this.imgUrl = 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg';
     this.altImg = 'Une image qui contient un texte alternatif';
+    this.buttonText = "Oh Snap !"
+  }
+
+  onSnap(){
+    if(this.buttonText === "Oh Snap !") {
+      this.snaps++;
+      this.buttonText = "Oops, unSnap !";
+    }
+    else {
+      this.snaps--;
+      this.buttonText = "Oh Snap !";
+    }
   }
 }
