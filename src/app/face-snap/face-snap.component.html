@@ -1,11 +1,11 @@
 <div class="face-snap-card">
-<h2>{{ title }}</h2>
-<p>Mise en ligne le {{ createdDate }}</p>
+<h2>{{ faceSnap.title }}</h2>
+<p>Mise en ligne le {{ faceSnap.createdDate }}</p>
 <!-- Attribute binding, permet de lier les valeurs des propriétés (lie même si ce ne sont pas des strings) -->
-<img [src]="imgUrl" [alt]="altImg" />
-<p>{{ description }}</p>
+<img [src]="faceSnap.imgUrl" [alt]="faceSnap.altImg" />
+<p>{{ faceSnap.description }}</p>
 <p>
     <button (click)="onSnap()">{{buttonText}}</button>
-    💙 {{ snaps }}
+    💙 {{ faceSnap.snaps }}
 </p>
 </div>
