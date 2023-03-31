@@ -26,7 +26,8 @@ export class AppComponent implements OnInit{
       new Date(),
       0,
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/280px-Three_Rock_Mountain_Southern_Tor.jpg',
-      'Une image qui contient une montagne qui est très apprécié des randonneurs'
+      'Une image qui contient une montagne qui est très apprécié des randonneurs',
+      'une montagne en Irlande'
     );
     this.myLastSnap = new FaceSnap(
       'Le Mont Ventoux',
@@ -34,7 +35,8 @@ export class AppComponent implements OnInit{
       new Date(),
       0,
       'https://cdn.pixabay.com/photo/2020/06/05/18/53/mont-ventoux-5264149_960_720.jpg',
-      'Une image qui arbore le Mont Ventoux avec un beau paysage'
+      'Une image qui arbore le Mont Ventoux avec un beau paysage',
+      'dans la Drôme Provençale'
     );
   }
 }

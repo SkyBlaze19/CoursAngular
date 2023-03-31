@@ -4,6 +4,7 @@
 <!-- Attribute binding, permet de lier les valeurs des propriétés (lie même si ce ne sont pas des strings) -->
 <img [src]="faceSnap.imgUrl" [alt]="faceSnap.altImg" />
 <p>{{ faceSnap.description }}</p>
+<p *ngIf="faceSnap.location">Lieu de la photo : {{ faceSnap.location }}</p>
 <p>
     <button (click)="onSnap()">{{buttonText}}</button>
     💙 {{ faceSnap.snaps }}
