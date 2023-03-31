@@ -1,4 +1,9 @@
-<app-face-snap [faceSnap]="mySnap"></app-face-snap>
-<app-face-snap [faceSnap]="myOtherSnap"></app-face-snap>
-<app-face-snap [faceSnap]="myLastSnap"></app-face-snap>
+<app-face-snap *ngFor="let faceSnapElemArray of faceSnaps" 
+[faceSnap]="faceSnapElemArray"></app-face-snap>
+<!-- 
+    Ancienne manière d'appel des components 
+    Car ils étaient déclaré manuellement
+    <app-face-snap [faceSnap]="myOtherSnap"></app-face-snap>
+    <app-face-snap [faceSnap]="myLastSnap"></app-face-snap>
+-->
 <!--<app-face-snap></app-face-snap>-->
