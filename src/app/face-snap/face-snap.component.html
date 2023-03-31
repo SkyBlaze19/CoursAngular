@@ -1,6 +1,6 @@
 <div class="face-snap-card">
 <h2>{{ faceSnap.title }}</h2>
-<p>Mise en ligne le {{ faceSnap.createdDate }}</p>
+<p>Mise en ligne le {{ dateService.modifyDate(faceSnap.createdDate) }}</p>
 <!-- Attribute binding, permet de lier les valeurs des propriétés (lie même si ce ne sont pas des strings) -->
 <img [src]="faceSnap.imgUrl" [alt]="faceSnap.altImg" />
 <p>{{ faceSnap.description }}</p>

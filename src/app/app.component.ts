@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FaceSnap } from './models/face-snap.models';
+import { DateService } from './services/date.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ export class AppComponent implements OnInit{
   /*mySnap!: FaceSnap;
   myOtherSnap!: FaceSnap;
   myLastSnap!: FaceSnap;*/
+
+  constructor(private dateService: DateService) { }
 
   ngOnInit() {
     this.faceSnaps = [
@@ -40,7 +43,10 @@ export class AppComponent implements OnInit{
         altImg: 'Une image qui arbore le Mont Ventoux avec un beau paysage',
         location: 'dans la Drôme Provençale'
       }
-    ]
+    ];
+
+    const modifiedDate = this.dateService.modifyDate(this.faceSnaps[0].createdDate);
+    console.log(modifiedDate);
     // Déclaration séparée // Maitenant on passe par un tableau
     /*
     this.mySnap = new FaceSnap(

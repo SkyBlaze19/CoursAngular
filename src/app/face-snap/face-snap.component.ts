@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { FaceSnap } from '../models/face-snap.models';
+import { DateService } from '../services/date.service';
 
 @Component({
   selector: 'app-face-snap',
@@ -8,6 +9,7 @@ import { FaceSnap } from '../models/face-snap.models';
 })
 export class FaceSnapComponent implements OnInit{
   @Input() faceSnap!: FaceSnap;
+  dateLisible?: string;
   /* Idem que le commentaire à l'intérieur de ngOnInit.
   // On laisse buttonText car il est statique, il ne changera pas 
   // entre tous les snaps existants.
@@ -19,6 +21,10 @@ export class FaceSnapComponent implements OnInit{
   altImg!: string;
   */
   buttonText!: string;
+
+  constructor(public dateService: DateService) {
+    this.dateLisible = this.dateService.modifyDate(this.faceSnap.createdDate);
+  }
 
   ngOnInit() {
     /* Mise en commentaire car maintenant le tout est géré par mon objet 
