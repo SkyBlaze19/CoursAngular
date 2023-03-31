@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
         title: 'Un test',
         description: 'la description de mon test',
         createdDate: new Date(),
-        snaps: 0,
+        snaps: 35,
         imgUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
         altImg: 'Une image qui contient un texte alternatif'
       },
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
         title: 'Three Rock Mountain',
         description: 'Un endroit magnifique pour les randonnées',
         createdDate: new Date(),
-        snaps: 0,
+        snaps: 262,
         imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/280px-Three_Rock_Mountain_Southern_Tor.jpg',
         altImg: 'Une image qui contient une montagne qui est très apprécié des randonneurs',
         location: 'une montagne en Irlande'
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
         title: 'Le Mont Ventoux',
         description: 'Le Mont chauve, un lieu de croisade pour de nombreux cyclistes',
         createdDate: new Date(),
-        snaps: 0,
+        snaps: 520,
         imgUrl: 'https://cdn.pixabay.com/photo/2020/06/05/18/53/mont-ventoux-5264149_960_720.jpg',
         altImg: 'Une image qui arbore le Mont Ventoux avec un beau paysage',
         location: 'dans la Drôme Provençale'
