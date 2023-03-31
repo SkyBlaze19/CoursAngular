@@ -47,6 +47,7 @@ export class AppComponent implements OnInit{
 
     const modifiedDate = this.dateService.modifyDate(this.faceSnaps[0].createdDate);
     console.log(modifiedDate);
+    
     // Déclaration séparée // Maitenant on passe par un tableau
     /*
     this.mySnap = new FaceSnap(

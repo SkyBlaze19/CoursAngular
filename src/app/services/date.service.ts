@@ -11,6 +11,7 @@ export class DateService {
   modifyDate(createdDate: Date): string {
     const options: DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' };
     const dateLisible = createdDate.toLocaleDateString("fr-FR", options);
+    //console.log(dateLisible);
     return dateLisible;
   }
 }

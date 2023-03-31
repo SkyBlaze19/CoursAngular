@@ -9,7 +9,7 @@ import { DateService } from '../services/date.service';
 })
 export class FaceSnapComponent implements OnInit{
   @Input() faceSnap!: FaceSnap;
-  dateLisible?: string;
+  dateLisible!: string;
   /* Idem que le commentaire à l'intérieur de ngOnInit.
   // On laisse buttonText car il est statique, il ne changera pas 
   // entre tous les snaps existants.
