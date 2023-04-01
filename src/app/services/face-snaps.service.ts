@@ -13,6 +13,7 @@ Et donc que l'application partagera les mêmes données et la même logique
 export class FaceSnapsService {
     faceSnaps: FaceSnap[] = [
         {
+          id: 1,
           title: 'Le Mont Ventoux',
           description: 'Le Mont chauve, un lieu de croisade pour de nombreux cyclistes',
           createdDate: new Date(),
@@ -22,6 +23,7 @@ export class FaceSnapsService {
           location: 'Dans la Drôme Provençale'
         },
         {
+          id: 2,
           title: 'l\'alpe d\'huez',
           description: 'Les 21 virages mythiques de l\'alpe d\'huez',
           createdDate: new Date(),
@@ -31,6 +33,7 @@ export class FaceSnapsService {
           location: 'Dans les alpes'
         },
         {
+          id: 3,
           title: 'PASSO DEL STELVIO',
           description: 'Le Passo del Stelvio, un haut lieu du cyclisme Italien',
           createdDate: new Date(),
@@ -40,6 +43,7 @@ export class FaceSnapsService {
           location: 'dans les Alpes Italiennes'
         },
         {
+          id: 4,
           title: 'Three Rock Mountain',
           description: 'Un endroit magnifique pour les randonnées',
           createdDate: new Date(),
@@ -49,6 +53,7 @@ export class FaceSnapsService {
           location: 'une montagne en Irlande'
         },
         {
+          id: 5,
           title: 'Un test',
           description: 'la description de mon test',
           createdDate: new Date(),
@@ -57,6 +62,7 @@ export class FaceSnapsService {
           altImg: 'Une image qui contient un texte alternatif'
         },
         {
+          id: 6,
           title: 'Une bibi',
           description: 'Un chien trop gentil !',
           createdDate: new Date(),
@@ -65,4 +71,33 @@ export class FaceSnapsService {
           altImg: 'Une photo de moi sur Zwift'
         },
     ];
+
+    getAllFaceSnaps(): FaceSnap[] {
+        return this.faceSnaps;
+    }
+
+    getFaceSnapById(faceSnapId: number): FaceSnap {
+        const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+        if (faceSnap) {
+            return faceSnap;
+        } else {
+            throw new Error('FaceSnap not found!');
+        }
+    }
+
+    snapFaceSnapById(faceSnapId: number, snapType : 'snap' | 'unsnap'): void {
+        const faceSnap = this.getFaceSnapById(faceSnapId);
+        snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
+    }
+
+    /*
+    unSnapFaceSnapById(faceSnapId: number): void {
+        const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+        if (faceSnap) {
+            faceSnap.snaps--;
+        } else {
+            throw new Error('FaceSnap not found!');
+        }
+    }
+    */
 }

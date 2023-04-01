@@ -1,4 +1,5 @@
 export class FaceSnap {
+  id: number; 
   title: string;
   description: string;
   createdDate: Date;
@@ -8,6 +9,7 @@ export class FaceSnap {
   location?: string;
 
   constructor(
+    id: number,
     title: string, 
     description: string, 
     createdDate: Date, 
@@ -15,6 +17,7 @@ export class FaceSnap {
     imgUrl: string, 
     altImg: string,
     location?: string) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.createdDate = createdDate;
