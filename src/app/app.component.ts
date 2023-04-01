@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+/* Plus besoin de ça car on passe par un autre composant
 import { FaceSnap } from './models/face-snap.models';
+*/
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,13 @@ import { FaceSnap } from './models/face-snap.models';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  faceSnaps!: FaceSnap[];
+  //faceSnaps!: FaceSnap[];
   /*mySnap!: FaceSnap;
   myOtherSnap!: FaceSnap;
   myLastSnap!: FaceSnap;*/
 
   ngOnInit() {
+    /* On passe maintenant par un autre composant pour la déclaration des faceSnaps
     this.faceSnaps = [
       {
         title: 'Un test',
@@ -41,6 +44,8 @@ export class AppComponent implements OnInit{
         location: 'dans la Drôme Provençale'
       }
     ]
+    */
+
     // Déclaration séparée // Maitenant on passe par un tableau
     /*
     this.mySnap = new FaceSnap(
