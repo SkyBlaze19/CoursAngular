@@ -1,12 +1,14 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { FaceSnap } from '../models/face-snap.models';
 import { FaceSnapsService } from '../services/face-snaps.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-face-snap',
   templateUrl: './face-snap.component.html',
   styleUrls: ['./face-snap.component.scss']
 })
+
 export class FaceSnapComponent implements OnInit{
   @Input() faceSnap!: FaceSnap;
   /* Idem que le commentaire à l'intérieur de ngOnInit.
@@ -23,7 +25,9 @@ export class FaceSnapComponent implements OnInit{
   format1!: string;
   format2!: string;
 
-  constructor(private faceSnapsService: FaceSnapsService) {}
+  constructor(private faceSnapsService: FaceSnapsService,
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     /* Mise en commentaire car maintenant le tout est géré par mon objet 
@@ -40,7 +44,7 @@ export class FaceSnapComponent implements OnInit{
     this.format2 = "dd/MM/yy, à HH:MM";
   }
 
-  onSnap(){
+  onSnap() {
     if(this.buttonText === "Oh Snap !") {
       //this.faceSnap.snaps++;
       this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
@@ -51,5 +55,9 @@ export class FaceSnapComponent implements OnInit{
       this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
       this.buttonText = "Oh Snap !";
     }
+  }
+
+  onViewFaceSnap() {
+    this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`);
   }
 }

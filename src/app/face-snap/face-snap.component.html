@@ -1,23 +1,26 @@
-
 <div class="face-snap-card" [ngClass]="{ snapped: buttonText==='Oops, unSnap !'}">
-<h2>{{ faceSnap.title | titlecase }}</h2>
-<p>Mise en ligne le {{ faceSnap.createdDate | date: format1}}</p>
-<!-- Attribute binding, permet de lier les valeurs des propriétés (lie même si ce ne sont pas des strings) -->
-<img [src]="faceSnap.imgUrl" [alt]="faceSnap.altImg" />
-<p>{{ faceSnap.description }}</p>
-<p *ngIf="faceSnap.location">Lieu de la photo : {{ faceSnap.location | lowercase }}</p>
-<p>
-    <button (click)="onSnap()">{{buttonText}}</button>
-    <span [ngStyle]="{color: 'rgb(0,'+ faceSnap.snaps/2.5 +',0)' }">💙 {{ faceSnap.snaps }}</span>
-</p>
-<!-- Exemple d'utilisation de pipes pour les chiffres
-<br>
-<p>{{ 4346234.36 | number: '1.0-1' }}</p>
-<p>{{ 0.36389 | percent: '1.0-2' }}</p>
-// Currency = monnaie
-<p>{{ 344.36 | currency }}</p>
-<p>{{ 344.36 | currency: 'EUR' }}</p>
-<p>{{ 344.36 | currency: 'CAD' }}</p>
-<p>{{ 344.36 | currency: 'INR' }}</p>
--->
+    <h2>{{ faceSnap.title | titlecase }}</h2>
+    <!--<p>Mise en ligne le {{ faceSnap.createdDate | date: format1}}</p>
+    Attribute binding, permet de lier les valeurs des propriétés (lie même si ce ne sont pas des strings)
+    <img [src]="faceSnap.imgUrl" [alt]="faceSnap.altImg" />
+    -->
+    <p>{{ faceSnap.description }}</p>
+    <!--
+        <p *ngIf="faceSnap.location">Lieu de la photo : {{ faceSnap.location | lowercase }}</p>
+    <p>
+        <button (click)="onSnap()">{{buttonText}}</button>
+        <span [ngStyle]="{color: 'rgb(0,'+ faceSnap.snaps/2.5 +',0)' }">💙 {{ faceSnap.snaps }}</span>
+    </p>
+    -->
+    <button (click)="onViewFaceSnap()">Voir le snap</button>
+    <!-- Exemple d'utilisation de pipes pour les chiffres
+    <br>
+    <p>{{ 4346234.36 | number: '1.0-1' }}</p>
+    <p>{{ 0.36389 | percent: '1.0-2' }}</p>
+    // Currency = monnaie
+    <p>{{ 344.36 | currency }}</p>
+    <p>{{ 344.36 | currency: 'EUR' }}</p>
+    <p>{{ 344.36 | currency: 'CAD' }}</p>
+    <p>{{ 344.36 | currency: 'INR' }}</p>
+    -->
 </div>
