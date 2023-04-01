@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
 
 /* Plus besoin de ça car on passe par un autre composant
 import { FaceSnap } from './models/face-snap.models';
