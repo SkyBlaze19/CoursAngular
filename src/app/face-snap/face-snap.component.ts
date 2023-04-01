@@ -19,6 +19,8 @@ export class FaceSnapComponent implements OnInit{
   altImg!: string;
   */
   buttonText!: string;
+  format1!: string;
+  format2!: string;
 
   ngOnInit() {
     /* Mise en commentaire car maintenant le tout est géré par mon objet 
@@ -30,7 +32,9 @@ export class FaceSnapComponent implements OnInit{
     this.imgUrl = 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg';
     this.altImg = 'Une image qui contient un texte alternatif';
     */
-    this.buttonText = "Oh Snap !"
+    this.buttonText = "Oh Snap !";
+    this.format1 = "dd MMMM yyyy, à HH:MM";
+    this.format2 = "dd/MM/yy, à HH:MM";
   }
 
   onSnap(){
