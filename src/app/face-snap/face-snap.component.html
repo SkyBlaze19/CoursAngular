@@ -10,4 +10,14 @@
     <button (click)="onSnap()">{{buttonText}}</button>
     <span [ngStyle]="{color: 'rgb(0,'+ faceSnap.snaps/2.5 +',0)' }">💙 {{ faceSnap.snaps }}</span>
 </p>
+<!-- Exemple d'utilisation de pipes pour les chiffres
+<br>
+<p>{{ 4346234.36 | number: '1.0-1' }}</p>
+<p>{{ 0.36389 | percent: '1.0-2' }}</p>
+// Currency = monnaie
+<p>{{ 344.36 | currency }}</p>
+<p>{{ 344.36 | currency: 'EUR' }}</p>
+<p>{{ 344.36 | currency: 'CAD' }}</p>
+<p>{{ 344.36 | currency: 'INR' }}</p>
+-->
 </div>
