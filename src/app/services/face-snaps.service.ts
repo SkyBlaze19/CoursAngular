@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FaceSnap } from "../models/face-snap.models";
+import { HttpClient } from "@angular/common/http";
 @Injectable({
     providedIn: 'root'
 })
@@ -11,6 +12,9 @@ Et donc que l'application partagera les mêmes données et la même logique
 */
 
 export class FaceSnapsService {
+
+  constructor(private http: HttpClient) {}
+
     faceSnaps: FaceSnap[] = [
         {
           id: 1,
