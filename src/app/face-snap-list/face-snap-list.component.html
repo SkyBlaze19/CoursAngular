@@ -1,2 +1,7 @@
+<!-- Ancienne logique (sans requête http)
 <app-face-snap *ngFor="let faceSnapElemArray of faceSnaps" 
 [faceSnap]="faceSnapElemArray"></app-face-snap>
+-->
+<app-face-snap *ngFor="let faceSnap of faceSnaps$ | async" 
+[faceSnap]="faceSnap">
+</app-face-snap>

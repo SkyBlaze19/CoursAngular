@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { FaceSnap } from "../models/face-snap.models";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
@@ -76,9 +77,16 @@ export class FaceSnapsService {
         },
     ];
 
+    /* Ancienne logique (sans http)
     getAllFaceSnaps(): FaceSnap[] {
         return this.faceSnaps;
     }
+    */
+
+    getAllFaceSnaps(): Observable<FaceSnap[]> {
+      return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps');
+    }
+
 
     getFaceSnapById(faceSnapId: number): FaceSnap {
         const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
