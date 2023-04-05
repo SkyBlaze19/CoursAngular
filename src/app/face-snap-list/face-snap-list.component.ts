@@ -26,14 +26,15 @@ export class FaceSnapListComponent implements OnInit {
     ).subscribe();
     */
     // émissions pdt toute la durée de vie du component
-    this.destroy$ = new Subject<boolean>();
+    /*this.destroy$ = new Subject<boolean>();
     interval(1000).pipe(
       tap(console.log),
       takeUntil(this.destroy$)
     ).subscribe();
+    */
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(true);
+    //this.destroy$.next(true);
   }
 }
