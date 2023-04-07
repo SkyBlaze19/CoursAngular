@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { FaceSnap } from "../models/face-snap.models";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, map, switchMap } from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
 /* Le code ci-dessus permet de dire à angular qu'il doit enregistrer 
-ce service à la racine de l'app^liucation
+ce service à la racine de l'application
 cela permet d'assurer qu'il n'y aura qu'une seule instance 
 de se service
 Et donc que l'application partagera les mêmes données et la même logique
@@ -88,20 +88,71 @@ export class FaceSnapsService {
     }
 
 
-    getFaceSnapById(faceSnapId: number): FaceSnap {
-        const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+    getFaceSnapById(faceSnapId: number): Observable<FaceSnap> {
+        /*const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
         if (faceSnap) {
             return faceSnap;
         } else {
             throw new Error('FaceSnap not found!');
-        }
+        }*/
+        return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`);
     }
 
+    snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): Observable<FaceSnap> {
+      return this.getFaceSnapById(faceSnapId).pipe(
+          map(faceSnap => ({
+              ...faceSnap,
+              snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)
+          })),
+          switchMap(updatedFaceSnap => this.http.put<FaceSnap>(
+              `http://localhost:3000/facesnaps/${faceSnapId}`,
+              updatedFaceSnap)
+          )
+      );
+    }
+
+    /* Statique
     snapFaceSnapById(faceSnapId: number, snapType : 'snap' | 'unsnap'): void {
         const faceSnap = this.getFaceSnapById(faceSnapId);
         snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
     }
+    */
 
+    addNewFaceSnap(formValues: { title: string, description: string, imgUrl: string, altImg: string, location?: string }): Observable<FaceSnap> {
+      return this.getAllFaceSnaps().pipe(
+        map(facesnaps => [...facesnaps].sort((a,b) => a.id - b.id)),
+        map(sortedFacesnaps => sortedFacesnaps[sortedFacesnaps.length - 1]),
+        map(previousFacesnap => ({
+          ...formValues,
+          snaps: 0, 
+          createdDate: new Date(),
+          id: previousFacesnap.id + 1
+        })),
+        switchMap(newFacesnap => this.http.post<FaceSnap>('http://localhost:3000/facesnaps',
+          newFacesnap)
+        )
+      )
+    }
+
+    
+    modifyFaceSnap(formValues: 
+      { 
+        title: string,
+        description: string,
+        imgUrl: string,
+        altImg: string,
+        location?: string,
+        snaps: number,
+        createdDate: Date,
+        id: number
+      }): Observable<FaceSnap> {
+        const updatedFaceSnap = {...formValues};
+        return this.http.put<FaceSnap>(`http://localhost:3000/facesnaps/${formValues.id}`,
+        updatedFaceSnap);
+    }
+    
+
+    /* Statique
     addNewFaceSnap(formValues: { title: string, description: string, imgUrl: string, altImg: string, location?: string }) {
       const faceSnap: FaceSnap = {
         ...formValues,
@@ -111,6 +162,7 @@ export class FaceSnapsService {
       };
       this.faceSnaps.push(faceSnap);
     }
+    */
 
     /*
     unSnapFaceSnapById(faceSnapId: number): void {

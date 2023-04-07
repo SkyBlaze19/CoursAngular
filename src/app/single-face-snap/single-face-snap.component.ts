@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { FaceSnapsService } from '../services/face-snaps.service';
 import { FaceSnap } from '../models/face-snap.models';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-single-face-snap',
@@ -12,6 +13,7 @@ import { FaceSnap } from '../models/face-snap.models';
 
 export class SingleFaceSnapComponent implements OnInit{
   faceSnap!: FaceSnap;
+  faceSnap$!: Observable<FaceSnap>;
 
   buttonText!: string;
   format1!: string;
@@ -27,9 +29,11 @@ export class SingleFaceSnapComponent implements OnInit{
 
     // Ci-dessous typecast qui permet de transformer une chaine en number
     const faceSnapId = +this.route.snapshot.params['id'];
-    this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
+    //this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
+    this.faceSnap$ = this.faceSnapsService.getFaceSnapById(faceSnapId);
   }
 
+  /* Manière statique
   onSnap(){
     if(this.buttonText === "Oh Snap !") {
       this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
@@ -38,6 +42,18 @@ export class SingleFaceSnapComponent implements OnInit{
     else {
       this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
       this.buttonText = "Oh Snap !";
+    }
+  }
+  */
+  onSnap(faceSnapId: number) {
+    if (this.buttonText === 'Oh Snap!') {
+        this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap').pipe(
+            tap(() => this.buttonText = 'Oops, unSnap!')
+        );
+    } else {
+        this.faceSnap$ = this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap').pipe(
+            tap(() => this.buttonText = 'Oh Snap!')
+        );
     }
   }
 }
