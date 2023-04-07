@@ -60,4 +60,8 @@ export class FaceSnapComponent implements OnInit{
     //console.log('Tu est appelé (onviewfacesnap)');
     this.router.navigateByUrl(`facesnap/${this.faceSnap.id}`);
   }
+
+  onModifyFaceSnap() {
+    this.router.navigateByUrl(`facesnap/modify/${this.faceSnap.id}`);
+  }
 }
