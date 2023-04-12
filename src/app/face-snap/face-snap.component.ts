@@ -64,4 +64,8 @@ export class FaceSnapComponent implements OnInit{
   onModifyFaceSnap() {
     this.router.navigateByUrl(`facesnap/modify/${this.faceSnap.id}`);
   }
+
+  onAddNewLocation() {
+    this.router.navigateByUrl(`facesnap/addLoc/${this.faceSnap.id}`);
+  }
 }
