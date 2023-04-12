@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifyFaceSnapComponent } from './modify-face-snap/modify-face-snap.component';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ModifyFaceSnapComponent } from './modify-face-snap/modify-face-snap.com
     SingleFaceSnapComponent,
     NewFaceSnapComponent,
     ModifyFaceSnapComponent,
+    AddLocationComponent,
   ],
   imports: [
     BrowserModule,
