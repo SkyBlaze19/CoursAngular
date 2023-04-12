@@ -17,6 +17,7 @@ import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModifyFaceSnapComponent } from './modify-face-snap/modify-face-snap.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { HttpInterceptorProviders } from 'src/interceptors';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AddLocationComponent } from './add-location/add-location.component';
     HttpClientModule,
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'fr-FR' }
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    HttpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
