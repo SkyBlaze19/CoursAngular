@@ -14,7 +14,7 @@
     -->
     <button (click)="onViewFaceSnap()">Voir le snap</button>
     <button (click)="onModifyFaceSnap()">Modifier le snap</button>
-    <button *ngIf="faceSnap.location === null" (click)="onAddNewLocation()">Ajouter un lieu</button>
+    <button *ngIf="faceSnap.location == null || faceSnap.location === 'null'" (click)="onAddNewLocation()">Ajouter un lieu</button>
     <!-- Exemple d'utilisation de pipes pour les chiffres
     <br>
     <p>{{ 4346234.36 | number: '1.0-1' }}</p>
